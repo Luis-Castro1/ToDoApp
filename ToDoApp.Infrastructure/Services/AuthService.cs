@@ -18,12 +18,19 @@ namespace ToDoApp.Infrastructure.Services
 
         public async Task<AuthResponseDto> LoginAsync(LoginDto loginDto)
         {
-            var user = await _userManager.FindByEmailAsync(loginDto.Email);
+            var user = await _userManager.FindByNameAsync(loginDto.User);
+
             if (user == null)
             {
-                _authResponse.IsAuthenticated = false;
-                _authResponse.ErrorMessage = "User not found.";
-                return _authResponse;
+                user = await _userManager.FindByEmailAsync(loginDto.User);
+
+                if (user == null)
+                {
+
+                    _authResponse.IsAuthenticated = false;
+                    _authResponse.ErrorMessage = "User not found.";
+                    return _authResponse;
+                }
 
             }
 

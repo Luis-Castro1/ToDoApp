@@ -23,9 +23,9 @@ namespace ToDoApp.Api.Controllers
                 return BadRequest("Invalid login request.");
             }
 
-            if (string.IsNullOrEmpty(loginDto.Email) || string.IsNullOrEmpty(loginDto.Password))
+            if (string.IsNullOrEmpty(loginDto.User) || string.IsNullOrEmpty(loginDto.Password))
             {
-                return BadRequest("Email and password are required.");
+                return BadRequest("User and password are required.");
             }
 
             var authResponse = await _authService.LoginAsync(loginDto);

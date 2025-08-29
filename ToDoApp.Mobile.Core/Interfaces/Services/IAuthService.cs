@@ -4,7 +4,7 @@ namespace ToDoApp.Mobile.Core.Interfaces.Services
 {
     public interface IAuthService
     {
-        Task<AuthResponseDto> LoginAsync(string email, string password);
+        Task<AuthResponseDto> LoginAsync(string user, string password);
         Task LogoutAsync();
     }
 }

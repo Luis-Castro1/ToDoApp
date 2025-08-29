@@ -2,12 +2,12 @@
 {
     public class LoginDto
     {
-        public string Email { get; set; } = string.Empty;
+        public string User { get; set; } = string.Empty;
         public string Password { get; set; } = string.Empty;
         public LoginDto() { }
-        public LoginDto(string email, string password)
+        public LoginDto(string user, string password)
         {
-            Email = email;
+            User = user;
             Password = password;
         }
     }

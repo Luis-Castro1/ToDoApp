@@ -1,4 +1,6 @@
-﻿namespace ToDoApp.Mobile
+﻿using MauiIcons.Core;
+
+namespace ToDoApp.Mobile
 {
     public partial class App : Application
     {

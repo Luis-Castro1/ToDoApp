@@ -4,11 +4,22 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:page="clr-namespace:ToDoApp.Mobile.Views"
+    xmlns:local="clr-namespace:ToDoApp.Mobile"
     Shell.FlyoutBehavior="Disabled">
 
     <ShellContent
-        Title="Login"
         ContentTemplate="{DataTemplate page:LoginPage}"
         Route="loginPage" />
+
+    <TabBar>
+        <Tab Title="ProfilePage" Icon="donet_bot.png" IsVisible="True">
+                <ShellContent
+            Title="ProfilePage"
+                    Icon="donet_bot.png"
+            ContentTemplate="{DataTemplate page:ProfilePage}"
+            Route="ProfilePage" />
+            </Tab>
+        </TabBar>
+
 
 </Shell>

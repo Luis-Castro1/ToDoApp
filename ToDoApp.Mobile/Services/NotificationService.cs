@@ -7,6 +7,11 @@ namespace ToDoApp.Mobile.Services
 {
     public class NotificationService : INotificationService
     {
+        public async Task ShowAlertAsync(string message, TypeNotification type)
+        {
+            await App.Current.MainPage.DisplayAlert("Error", message, "OK");
+        }
+
         public async Task ShowNotificationAsync(string message, TypeNotification type)
         {
             CancellationTokenSource cancellationTokenSource = new();

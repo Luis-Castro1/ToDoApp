@@ -1,8 +1,10 @@
-﻿namespace ToDoApp.Mobile.Core.Interfaces.ViewModels
+﻿using ToDoApp.Mobile.Core.Models;
+
+namespace ToDoApp.Mobile.Core.Interfaces.ViewModels
 {
     public interface ILoginViewModel : IBaseViewModel
     {
-        string Email { get; set; }
+        string User { get; set; }
         string Password { get; set; }
         bool ShowPassword { get; set; }
         enum IconPassword;

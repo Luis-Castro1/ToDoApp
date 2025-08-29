@@ -5,12 +5,15 @@
               x:Class="ToDoApp.Mobile.Views.LoginPage" BackgroundColor="Gray"
               xmlns:fa="http://www.aathifmahir.com/dotnet/2022/maui/icons"
               x:DataType="vm:ILoginViewModel"
-              Background="White"
-              Title="">
+              Background="White">
 
     <ScrollView>
 
-        <Grid RowDefinitions=".5*, .5*">
+        <Shell.BackButtonBehavior>
+            <BackButtonBehavior IsVisible="False" />
+        </Shell.BackButtonBehavior>
+        
+        <Grid RowDefinitions=".5*, .5*" BackgroundColor="{AppThemeBinding Dark=black, Light=white}">
             <Border StrokeShape="RoundRectangle 0, 0, 20, 20">
                 <Border.Background>
                     <LinearGradientBrush StartPoint="1,0" EndPoint="0,0">
@@ -46,7 +49,7 @@
                     Margin="0,-70,0,0"
                     Padding="15,0"
                     StrokeShape="RoundRectangle 30"
-                    BackgroundColor="#ffffff"
+                    BackgroundColor="{AppThemeBinding Light={StaticResource White}, Dark={StaticResource Gray900}}"
                     Stroke="Gray">
 
                     <VerticalStackLayout 
@@ -57,7 +60,7 @@
                         <Border 
                             StrokeShape="RoundRectangle 20" 
                             Stroke="Transparent" 
-                            Background="#f2f2f2" >
+                            BackgroundColor="{AppThemeBinding Light=#f2f2f2,Dark=#464646}" >
 
                             <Grid ColumnDefinitions=".13*, .9*" VerticalOptions="Center" Padding="15,0">
                                 <Label 
@@ -65,14 +68,15 @@
                                     Grid.Column="0"
                                     fa:MauiIcon.Value="{fa:FontAwesome Icon=Envelope, FontOverride=True}"
                                     FontSize="25"
-                                    TextColor="#8c8c8c"
+                                    TextColor="{AppThemeBinding Light=#8c8c8c, Dark=#C8C8C8}"
                                     />
 
                                 <Entry 
-                                    Text="{Binding Email}"
+                                    Text="{Binding User}"
                                     Placeholder="Username / Email"
                                     PlaceholderColor="#8c8c8c"
                                     IsEnabled="True" 
+                                    TextColor="{AppThemeBinding Light=black, Dark=white}"
                                     Grid.Column="1"/>
                             </Grid>
                         </Border>
@@ -82,40 +86,41 @@
                             <Border 
                                  StrokeShape="RoundRectangle 20" 
                                  Stroke="Transparent" 
-                                 Background="#f2f2f2" 
+                                 BackgroundColor="{AppThemeBinding Light=#f2f2f2,Dark=#464646}"
                                  Margin="0" 
                                  Padding="15,0"
                                 Grid.Row="0"
                                  >
 
-                                <Grid ColumnDefinitions=".13*, .9*, .1*" VerticalOptions="Center">
+                                <Grid ColumnDefinitions=".13*, .9*, .1*" RowDefinitions="*, *" VerticalOptions="Center">
                                     <Label Grid.Row="0" 
                                         VerticalOptions="Center"
                                         Grid.Column="0"
                                         fa:MauiIcon.Value="{fa:Material Icon=Key, FontOverride=True}"
                                         FontSize="25"
-                                        TextColor="#8c8c8c"
+                                        TextColor="{AppThemeBinding Light=#8c8c8c, Dark=#C8C8C8}"
                                     />
 
                                     <Entry Grid.Row="0" 
                                            Text="{Binding Password}"
-                                            Placeholder="Password"
-                                            PlaceholderColor="#8c8c8c"
-                                            IsEnabled="True" 
-                                            IsPassword="{Binding ShowPassword}"
-                                            Grid.Column="1"
+                                           Placeholder="Password"
+                                           PlaceholderColor="#8c8c8c"
+                                           IsEnabled="True" 
+                                           IsPassword="{Binding ShowPassword}"
+                                           Grid.Column="1"
+                                           TextColor="{AppThemeBinding Light=black, Dark=white}"
                                     />
 
 
                                     <ImageButton 
                                         Grid.Column="2"  
-                                        fa:MauiIcon.Value="{fa:Material Icon={Binding IconPassword}, IconColor=#8c8c8c}" Command="{Binding TogglePasswordVisibilityCommand}"/>
+                                        fa:MauiIcon.Value="{fa:Material Icon={Binding IconPassword}, IconColor={AppThemeBinding Light=#8c8c8c, Dark=#C8C8C8}}" Command="{Binding TogglePasswordVisibilityCommand}"/>
 
                                 </Grid>
                             </Border>
 
                             <Border Grid.Row="1" Stroke="Transparent" Margin="8,0,0,0">
-                                <Label Text="Forgot Password?" TextColor="Black" FontAttributes="Italic" Grid.Row="1"/>
+                                <Label Text="Forgot Password?" TextColor="{AppThemeBinding Light=black, Dark=white}" FontAttributes="Italic" Grid.Row="1"/>
                             </Border>
 
 
@@ -125,6 +130,7 @@
                         <Grid RowDefinitions="*, .5*" RowSpacing="5">
                             <Border Stroke="Transparent" Margin="0" Grid.Row="0">
                                 <Button Text="Login" FontSize="15" 
+                                        x:Name="btnLogin"
                                     FontAttributes="Bold" 
                                     HorizontalOptions="CenterAndExpand" 
                                     WidthRequest="200"
@@ -140,11 +146,35 @@
                                             <!-- Azul más claro -->
                                         </LinearGradientBrush>
                                     </Button.Background>
+
+                                    <Button.Triggers>
+                                        <!-- Estado habilitado -->
+                                        <Trigger TargetType="Button" Property="IsEnabled" Value="True">
+                                            <Setter Property="Background">
+                                                <LinearGradientBrush StartPoint="1,0" EndPoint="0,0">
+                                                    <GradientStop Color="#2196F3" Offset="0.0" />
+                                                    <GradientStop Color="#64B5F6" Offset="1.0" />
+                                                </LinearGradientBrush>
+                                            </Setter>
+                                            <Setter Property="TextColor" Value="White" />
+                                        </Trigger>
+
+                                        <!-- Estado deshabilitado -->
+                                        <Trigger TargetType="Button" Property="IsEnabled" Value="False">
+                                            <Setter Property="Background">
+                                                <LinearGradientBrush StartPoint="1,0" EndPoint="0,0">
+                                                    <GradientStop Color="#BDBDBD" Offset="0.0" />
+                                                    <GradientStop Color="#E0E0E0" Offset="1.0" />
+                                                </LinearGradientBrush>
+                                            </Setter>
+                                            <Setter Property="TextColor" Value="#757575" />
+                                        </Trigger>
+                                    </Button.Triggers>
                                 </Button>
                             </Border>
 
                             <Border Stroke="Transparent" HorizontalOptions="CenterAndExpand" Margin="0" Grid.Row="1">
-                                <Label>
+                                <Label TextColor="{AppThemeBinding Light=black, Dark=white}">
                                     <Label.FormattedText>
                                         <FormattedString>
                                             <Span Text="Don't have a Account? "  FontAttributes="Bold" />

@@ -13,9 +13,9 @@ namespace ToDoApp.Mobile.Services
             _httpClient = httpClient;
         }
 
-        public async Task<AuthResponseDto> LoginAsync(string email, string password)
+        public async Task<AuthResponseDto> LoginAsync(string user, string password)
         {
-            var loginDto = new LoginDto(email, password);
+            var loginDto = new LoginDto(user, password);
 
 
             var response = await _httpClient.PostAsJsonAsync("Auth/login", loginDto);

@@ -1,8 +1,8 @@
 namespace ToDoApp.Mobile.Views;
 
-public partial class NewPage1 : ContentPage
+public partial class HomePage : ContentPage
 {
-    public NewPage1()
+    public HomePage()
     {
         InitializeComponent();
     }
