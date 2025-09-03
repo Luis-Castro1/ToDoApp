@@ -6,6 +6,7 @@ namespace ToDoApp.Application.Interfaces
     {
         Task<AuthResponseDto> LoginAsync(LoginDto loginDto);
         Task LogoutAsync();
-
+        Task<ForgotPasswordResponseDto> GenerateForgotPasswordCode(string UserOEmail);
+        Task<ResetPasswordResponseDto> ResetPasswordAsync(ResetPasswordDto resetPasswordDto);
     }
 }

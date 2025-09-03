@@ -12,183 +12,216 @@
         <Shell.BackButtonBehavior>
             <BackButtonBehavior IsVisible="False" />
         </Shell.BackButtonBehavior>
-        
-        <Grid RowDefinitions=".5*, .5*" BackgroundColor="{AppThemeBinding Dark=black, Light=white}">
-            <Border StrokeShape="RoundRectangle 0, 0, 20, 20">
-                <Border.Background>
-                    <LinearGradientBrush StartPoint="1,0" EndPoint="0,0">
-                        <GradientStop Color="#2196F3" Offset="0.0" />
-                        <!-- Azul más fuerte -->
-                        <GradientStop Color="#64B5F6" Offset="1.0" />
-                        <!-- Azul más claro -->
-                    </LinearGradientBrush>
-                </Border.Background>
 
-                <Grid RowDefinitions=".4*, .4*" Margin="0,80,0,0">
-                    <Label 
-                        fa:MauiIcon.Value="{fa:Material Icon=TaskAlt, FontOverride=True}"
-                        FontSize="150"
-                        HorizontalTextAlignment="Center"
-                        Margin="0,0,0,0"
-                        TextColor="White"/>
+        <Grid RowDefinitions="*">
 
-                    <Label 
-                        Text="WELCOME!!" 
-                        FontSize="30"
-                        FontAttributes="Bold"
-                        HorizontalTextAlignment="Center" 
-                        Margin="0,0,0,0" 
-                        TextColor="White"
-                        Grid.Row="1"/>
+            <Grid Grid.Row="0" RowDefinitions=".5*, .5*" BackgroundColor="{AppThemeBinding Dark=black, Light=white}">
 
-                </Grid>
-            </Border>
+                <Border StrokeShape="RoundRectangle 0, 0, 20, 20">
+                    <Border.Background>
+                        <LinearGradientBrush StartPoint="1,0" EndPoint="0,0">
+                            <GradientStop Color="#2196F3" Offset="0.0" />
+                            <!-- Azul más fuerte -->
+                            <GradientStop Color="#64B5F6" Offset="1.0" />
+                            <!-- Azul más claro -->
+                        </LinearGradientBrush>
+                    </Border.Background>
 
-            <Grid Grid.Row="1" VerticalOptions="Start" HorizontalOptions="Fill" Padding="30,0">
-                <Border
-                    Margin="0,-70,0,0"
-                    Padding="15,0"
-                    StrokeShape="RoundRectangle 30"
-                    BackgroundColor="{AppThemeBinding Light={StaticResource White}, Dark={StaticResource Gray900}}"
-                    Stroke="Gray">
+                    <Grid RowDefinitions=".4*, .4*" Margin="0,80,0,0">
+                        <Label 
+                fa:MauiIcon.Value="{fa:Material Icon=TaskAlt, FontOverride=True}"
+                FontSize="150"
+                HorizontalTextAlignment="Center"
+                Margin="0,0,0,0"
+                TextColor="White"/>
 
-                    <VerticalStackLayout 
-                        HorizontalOptions="Fill" 
-                        Padding="0,60"
-                        Spacing="40">
+                        <Label 
+                Text="WELCOME!!" 
+                FontSize="30"
+                FontAttributes="Bold"
+                HorizontalTextAlignment="Center" 
+                Margin="0,0,0,0" 
+                TextColor="White"
+                Grid.Row="1"/>
 
-                        <Border 
-                            StrokeShape="RoundRectangle 20" 
-                            Stroke="Transparent" 
-                            BackgroundColor="{AppThemeBinding Light=#f2f2f2,Dark=#464646}" >
+                    </Grid>
+                </Border>
 
-                            <Grid ColumnDefinitions=".13*, .9*" VerticalOptions="Center" Padding="15,0">
-                                <Label 
-                                    VerticalOptions="Center"
-                                    Grid.Column="0"
-                                    fa:MauiIcon.Value="{fa:FontAwesome Icon=Envelope, FontOverride=True}"
-                                    FontSize="25"
-                                    TextColor="{AppThemeBinding Light=#8c8c8c, Dark=#C8C8C8}"
-                                    />
+                <Grid Grid.Row="1" VerticalOptions="Start" HorizontalOptions="Fill" Padding="30,0">
+                    <Border
+                        Margin="0,-70,0,0"
+                        Padding="15,0"
+                        StrokeShape="RoundRectangle 30"
+                        BackgroundColor="{AppThemeBinding Light={StaticResource White}, Dark={StaticResource Gray900}}"
+                        Stroke="Gray">
 
-                                <Entry 
-                                    Text="{Binding User}"
-                                    Placeholder="Username / Email"
-                                    PlaceholderColor="#8c8c8c"
-                                    IsEnabled="True" 
-                                    TextColor="{AppThemeBinding Light=black, Dark=white}"
-                                    Grid.Column="1"/>
-                            </Grid>
-                        </Border>
+                        <VerticalStackLayout 
+                            HorizontalOptions="Fill" 
+                            Padding="0,60"
+                            Spacing="40">
 
-
-                        <Grid RowDefinitions="*, *" RowSpacing="10" VerticalOptions="Center">
                             <Border 
-                                 StrokeShape="RoundRectangle 20" 
-                                 Stroke="Transparent" 
-                                 BackgroundColor="{AppThemeBinding Light=#f2f2f2,Dark=#464646}"
-                                 Margin="0" 
-                                 Padding="15,0"
-                                Grid.Row="0"
-                                 >
+                                StrokeShape="RoundRectangle 20" 
+                                Stroke="Transparent" 
+                                BackgroundColor="{AppThemeBinding Light=#f2f2f2,Dark=#464646}" >
 
-                                <Grid ColumnDefinitions=".13*, .9*, .1*" RowDefinitions="*, *" VerticalOptions="Center">
-                                    <Label Grid.Row="0" 
+                                <Grid ColumnDefinitions=".13*, .9*" VerticalOptions="Center" Padding="15,0">
+                                    <Label 
                                         VerticalOptions="Center"
                                         Grid.Column="0"
-                                        fa:MauiIcon.Value="{fa:Material Icon=Key, FontOverride=True}"
+                                        fa:MauiIcon.Value="{fa:FontAwesome Icon=Envelope, FontOverride=True}"
                                         FontSize="25"
                                         TextColor="{AppThemeBinding Light=#8c8c8c, Dark=#C8C8C8}"
                                     />
 
-                                    <Entry Grid.Row="0" 
-                                           Text="{Binding Password}"
-                                           Placeholder="Password"
-                                           PlaceholderColor="#8c8c8c"
-                                           IsEnabled="True" 
-                                           IsPassword="{Binding ShowPassword}"
-                                           Grid.Column="1"
-                                           TextColor="{AppThemeBinding Light=black, Dark=white}"
+                                    <Entry 
+                                        Text="{Binding User}"
+                                        Placeholder="Username / Email"
+                                        PlaceholderColor="#8c8c8c"
+                                        TextColor="{AppThemeBinding Light=black, Dark=white}"
+                                        Grid.Column="1"
+                                        IsEnabled="{Binding IsBusy, Converter={StaticResource InverterBooleanCoverter}}"
                                     />
-
-
-                                    <ImageButton 
-                                        Grid.Column="2"  
-                                        fa:MauiIcon.Value="{fa:Material Icon={Binding IconPassword}, IconColor={AppThemeBinding Light=#8c8c8c, Dark=#C8C8C8}}" Command="{Binding TogglePasswordVisibilityCommand}"/>
-
                                 </Grid>
                             </Border>
 
-                            <Border Grid.Row="1" Stroke="Transparent" Margin="8,0,0,0">
-                                <Label Text="Forgot Password?" TextColor="{AppThemeBinding Light=black, Dark=white}" FontAttributes="Italic" Grid.Row="1"/>
-                            </Border>
 
-
-                        </Grid>
-
-
-                        <Grid RowDefinitions="*, .5*" RowSpacing="5">
-                            <Border Stroke="Transparent" Margin="0" Grid.Row="0">
-                                <Button Text="Login" FontSize="15" 
-                                        x:Name="btnLogin"
-                                    FontAttributes="Bold" 
-                                    HorizontalOptions="CenterAndExpand" 
-                                    WidthRequest="200"
-                                    HeightRequest="40"
-                                    CornerRadius="50"
-                                    Command="{Binding LoginCommand}"
+                            <Grid RowDefinitions="*, *" RowSpacing="10" VerticalOptions="Center">
+                                <Border 
+                                    StrokeShape="RoundRectangle 20" 
+                                    Stroke="Transparent" 
+                                    BackgroundColor="{AppThemeBinding Light=#f2f2f2,Dark=#464646}"
+                                    Margin="0" 
+                                    Padding="15,0"
+                                    Grid.Row="0"
                                 >
-                                    <Button.Background>
-                                        <LinearGradientBrush StartPoint="1,0" EndPoint="0,0">
-                                            <GradientStop Color="#2196F3" Offset="0.0" />
-                                            <!-- Azul más fuerte -->
-                                            <GradientStop Color="#64B5F6" Offset="1.0" />
-                                            <!-- Azul más claro -->
-                                        </LinearGradientBrush>
-                                    </Button.Background>
 
-                                    <Button.Triggers>
-                                        <!-- Estado habilitado -->
-                                        <Trigger TargetType="Button" Property="IsEnabled" Value="True">
-                                            <Setter Property="Background">
-                                                <LinearGradientBrush StartPoint="1,0" EndPoint="0,0">
-                                                    <GradientStop Color="#2196F3" Offset="0.0" />
-                                                    <GradientStop Color="#64B5F6" Offset="1.0" />
-                                                </LinearGradientBrush>
-                                            </Setter>
-                                            <Setter Property="TextColor" Value="White" />
-                                        </Trigger>
+                                    <Grid ColumnDefinitions=".13*, .9*, .1*" RowDefinitions="*, *" VerticalOptions="Center">
+                                        <Label Grid.Row="0" 
+                                            VerticalOptions="Center"
+                                            Grid.Column="0"
+                                            fa:MauiIcon.Value="{fa:Material Icon=Key, FontOverride=True}"
+                                            FontSize="25"
+                                            TextColor="{AppThemeBinding Light=#8c8c8c, Dark=#C8C8C8}"
+                                        />
 
-                                        <!-- Estado deshabilitado -->
-                                        <Trigger TargetType="Button" Property="IsEnabled" Value="False">
-                                            <Setter Property="Background">
-                                                <LinearGradientBrush StartPoint="1,0" EndPoint="0,0">
-                                                    <GradientStop Color="#BDBDBD" Offset="0.0" />
-                                                    <GradientStop Color="#E0E0E0" Offset="1.0" />
-                                                </LinearGradientBrush>
-                                            </Setter>
-                                            <Setter Property="TextColor" Value="#757575" />
-                                        </Trigger>
-                                    </Button.Triggers>
-                                </Button>
-                            </Border>
+                                        <Entry Grid.Row="0" 
+                                            Text="{Binding Password}"
+                                            Placeholder="Password"
+                                            PlaceholderColor="#8c8c8c"
+                                            IsPassword="{Binding ShowPassword}"
+                                            Grid.Column="1"
+                                            TextColor="{AppThemeBinding Light=black, Dark=white}"
+                                            IsEnabled="{Binding IsBusy, Converter={StaticResource InverterBooleanCoverter}}"
+                                        />
 
-                            <Border Stroke="Transparent" HorizontalOptions="CenterAndExpand" Margin="0" Grid.Row="1">
-                                <Label TextColor="{AppThemeBinding Light=black, Dark=white}">
-                                    <Label.FormattedText>
-                                        <FormattedString>
-                                            <Span Text="Don't have a Account? "  FontAttributes="Bold" />
-                                            <Span Text="Register"  FontAttributes="None" />
-                                        </FormattedString>
-                                    </Label.FormattedText>
-                                </Label>
-                            </Border>
-                        </Grid>
 
-                    </VerticalStackLayout>
+                                        <ImageButton Grid.Column="2"  
+                                            fa:MauiIcon.Value="{fa:Material Icon={Binding IconPassword}, 
+                                            IconColor={AppThemeBinding Light=#8c8c8c, Dark=#C8C8C8}}" 
+                                            Command="{Binding TogglePasswordVisibilityCommand}"
+                                            IsEnabled="{Binding IsBusy, Converter={StaticResource InverterBooleanCoverter}}"
+                                        />
 
-                </Border>
+                                    </Grid>
+                                </Border>
+
+                                <Border Grid.Row="1" Stroke="Transparent" Margin="0,-8,0,0">
+                                    <Button Text="Forgot Password?"
+                                            TextColor="{AppThemeBinding Light=black, Dark=white}" 
+                                            FontAttributes="Italic" 
+                                            Grid.Row="1"
+                                            WidthRequest="145"
+                                            HorizontalOptions="Start"
+                                            BackgroundColor="Transparent"
+                                            Command="{Binding ForgotPasswordCommand}"
+                                            />
+                                </Border>
+                                
+                            </Grid>
+
+                            <Grid RowDefinitions="*, .5*" RowSpacing="5">
+                                <Border Stroke="Transparent" Margin="0" Grid.Row="0">
+                                    <Button Text="Login" FontSize="15" 
+                                        x:Name="btnLogin"
+                                        FontAttributes="Bold" 
+                                        HorizontalOptions="CenterAndExpand" 
+                                        WidthRequest="200"
+                                        HeightRequest="40"
+                                        CornerRadius="50"
+                                        Command="{Binding LoginCommand}"
+                                        IsEnabled="{Binding IsBusy, Converter={StaticResource InverterBooleanCoverter}}"
+                                    >
+                                        <Button.Background>
+                                            <LinearGradientBrush StartPoint="1,0" EndPoint="0,0">
+                                                <GradientStop Color="#2196F3" Offset="0.0" />
+                                                <!-- Azul más fuerte -->
+                                                <GradientStop Color="#64B5F6" Offset="1.0" />
+                                                <!-- Azul más claro -->
+                                            </LinearGradientBrush>
+                                        </Button.Background>
+
+                                        <Button.Triggers>
+                                            <!-- Estado habilitado -->
+                                            <Trigger TargetType="Button" Property="IsEnabled" Value="True">
+                                                <Setter Property="Background">
+                                                    <LinearGradientBrush StartPoint="1,0" EndPoint="0,0">
+                                                        <GradientStop Color="#2196F3" Offset="0.0" />
+                                                        <GradientStop Color="#64B5F6" Offset="1.0" />
+                                                    </LinearGradientBrush>
+                                                </Setter>
+                                                <Setter Property="TextColor" Value="White" />
+                                            </Trigger>
+
+                                            <!-- Estado deshabilitado -->
+                                            <Trigger TargetType="Button" Property="IsEnabled" Value="False">
+                                                <Setter Property="Background">
+                                                    <LinearGradientBrush StartPoint="1,0" EndPoint="0,0">
+                                                        <GradientStop Color="#BDBDBD" Offset="0.0" />
+                                                        <GradientStop Color="#E0E0E0" Offset="1.0" />
+                                                    </LinearGradientBrush>
+                                                </Setter>
+                                                <Setter Property="TextColor" Value="#757575" />
+                                            </Trigger>
+                                        </Button.Triggers>
+                                    </Button>
+                                </Border>
+
+                                <Border Stroke="Transparent" HorizontalOptions="CenterAndExpand" Margin="0" Grid.Row="1">
+                                    <Label TextColor="{AppThemeBinding Light=black, Dark=white}">
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <Span Text="Don't have a Account? "  FontAttributes="Bold" />
+                                                <Span Text="Register"  FontAttributes="None" />
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
+                                </Border>
+                            </Grid>
+
+                        </VerticalStackLayout>
+
+                    </Border>
+                </Grid>
             </Grid>
+            <BoxView 
+                    IsVisible="{Binding IsBusy}"
+                    BackgroundColor="Black"
+                    Opacity="0.3"
+                    InputTransparent="True"
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="FillAndExpand"
+            />
+            
+            <ActivityIndicator 
+                IsRunning="{Binding IsBusy}" 
+                WidthRequest="90" 
+                HeightRequest="90"
+                VerticalOptions="Center" 
+                HorizontalOptions="Center"
+                Color="#2196F3"
+            />
         </Grid>
+        
     </ScrollView>
 </ContentPage>

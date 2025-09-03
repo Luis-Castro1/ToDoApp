@@ -40,9 +40,9 @@ namespace ToDoApp.Mobile.ViewModels
         {
             try
             {
+                IsBusy = true;
                 if (ModelValidate())
                 {
-                    IsBusy = true;
 
                     var response = await _authService.LoginAsync(User, Password);
 
@@ -51,12 +51,14 @@ namespace ToDoApp.Mobile.ViewModels
                         throw new Exception("Login failed. Please check your credentials.");
                     }
 
+                    IsBusy = false;
                     await _navigateService.NavigateToAsync("HomePage");
                     await _notificationService.ShowNotificationAsync($"Bienvenido {response.UserName}", TypeNotification.Info);
                 }
             }
             catch (Exception ex)
             {
+                IsBusy = false;
                 await _notificationService.ShowNotificationAsync(ex.Message, TypeNotification.Error);
             }
         }
@@ -64,6 +66,12 @@ namespace ToDoApp.Mobile.ViewModels
         public Task LogoutAsync()
         {
             throw new NotImplementedException();
+        }
+
+        [RelayCommand]
+        public async Task ForgotPassword()
+        {
+            await _navigateService.NavigateToAsync("HomePage");
         }
 
         private bool ModelValidate()
