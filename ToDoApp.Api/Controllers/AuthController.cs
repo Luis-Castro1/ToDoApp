@@ -59,6 +59,28 @@ namespace ToDoApp.Api.Controllers
             return Ok(new {message = "Se ha enviado un código de recuperación al correo asociado." });
         }
 
+        [HttpPost("validate-code-forgot-password")]
+        public async Task<IActionResult> ValidateCodeForgotPassword([FromBody] ForgotPasswordDto forgotPasswordDto)
+        {
+            if (forgotPasswordDto == null)
+            {
+                return BadRequest("Invalid validate code request.");
+            }
+
+            if (string.IsNullOrWhiteSpace(forgotPasswordDto.User) || string.IsNullOrWhiteSpace(forgotPasswordDto.Code))
+            {
+                return BadRequest("User and Code are required.");
+            }
+
+            var result = await _authService.ValidateForgotPasswordCode(forgotPasswordDto);
+
+            if (!result.IsSuccess)
+            {
+                return BadRequest(new { errorMessage = result.ErrorMessage });
+            }
+            return Ok(new { Message = "Code is valid." });
+        }
+
         [HttpPost("reset-password")]
         public async Task<IActionResult> ResetPassword([FromBody] ResetPasswordDto resetPasswordDto)
         {
@@ -66,7 +88,7 @@ namespace ToDoApp.Api.Controllers
             {
                 return BadRequest("Invalid reset password request.");
             }
-            if (string.IsNullOrEmpty(resetPasswordDto.UserOrEmail) || string.IsNullOrEmpty(resetPasswordDto.Code) || string.IsNullOrEmpty(resetPasswordDto.NewPassword))
+            if (string.IsNullOrEmpty(resetPasswordDto.UserOrEmail) || string.IsNullOrEmpty(resetPasswordDto.Token) || string.IsNullOrEmpty(resetPasswordDto.NewPassword))
             {
                 return BadRequest("User or email, code, and new password are required.");
             }

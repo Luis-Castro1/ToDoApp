@@ -10,6 +10,7 @@ namespace ToDoApp.Mobile
             Routing.RegisterRoute("LoginPage", typeof(LoginPage));
             Routing.RegisterRoute("HomePage", typeof(HomePage));
             Routing.RegisterRoute("ProfilePage", typeof(ProfilePage));
+            Routing.RegisterRoute("ForgotPasswordPage", typeof(ForgotPasswordPage));
         }
     }
 }

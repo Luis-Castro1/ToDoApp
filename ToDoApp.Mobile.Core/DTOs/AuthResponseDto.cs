@@ -1,4 +1,4 @@
-﻿namespace ToDoApp.Mobile.Core.Dtos
+﻿namespace ToDoApp.Mobile.Core.DTOs
 {
     public class AuthResponseDto
     {

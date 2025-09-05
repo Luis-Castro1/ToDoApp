@@ -74,10 +74,12 @@ namespace ToDoApp.Mobile
                 });
                 builder.Services.AddHttpClient();
                 builder.Services.AddSingleton<IAuthService, AuthService>();
-                builder.Services.AddSingleton<ILoginViewModel, LoginViewModel>();
-                builder.Services.AddSingleton<LoginPage>();
                 builder.Services.AddSingleton<INotificationService, NotificationService>();
                 builder.Services.AddSingleton<INavigateService, NavigateService>();
+                builder.Services.AddSingleton<IForgotPasswordViewModel, ForgotPasswordViewModel>();
+                builder.Services.AddSingleton<ILoginViewModel, LoginViewModel>();
+                builder.Services.AddSingleton<LoginPage>();
+                builder.Services.AddSingleton<ForgotPasswordPage>();
                 return builder.Build();
             }
             catch (Exception ex)

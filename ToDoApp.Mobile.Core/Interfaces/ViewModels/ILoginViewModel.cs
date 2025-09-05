@@ -1,6 +1,4 @@
-﻿using ToDoApp.Mobile.Core.Models;
-
-namespace ToDoApp.Mobile.Core.Interfaces.ViewModels
+﻿namespace ToDoApp.Mobile.Core.Interfaces.ViewModels
 {
     public interface ILoginViewModel : IBaseViewModel
     {

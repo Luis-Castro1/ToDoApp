@@ -71,7 +71,7 @@ namespace ToDoApp.Mobile.ViewModels
         [RelayCommand]
         public async Task ForgotPassword()
         {
-            await _navigateService.NavigateToAsync("HomePage");
+            await _navigateService.NavigateToAsync("ForgotPasswordPage");
         }
 
         private bool ModelValidate()

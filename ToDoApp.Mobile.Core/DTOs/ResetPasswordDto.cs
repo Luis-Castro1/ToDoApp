@@ -1,4 +1,4 @@
-﻿namespace ToDoApp.Application.DTOs
+﻿namespace ToDoApp.Mobile.Core.DTOs
 {
     public class ResetPasswordDto
     {
